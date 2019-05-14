@@ -1,4 +1,3 @@
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const path = require('path');
 
 module.exports = {
@@ -14,10 +13,7 @@ module.exports = {
     rules: [
       {
         test: /\.scss$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: ['css-loader', 'sass-loader']
-        })
+        loader: ['style-loader','css-loader', 'sass-loader']
       },
       {
         test: /\.(svg|otf|ttf|woff2?|eot)(\?\S*)?$/,
@@ -36,8 +32,5 @@ module.exports = {
         }
       }
     ]
-  },
-  plugins: [
-    new ExtractTextPlugin('./base.[hash:7].css')
-  ]
+  }
 }
