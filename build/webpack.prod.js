@@ -11,7 +11,7 @@ module.exports = {
   },
   output: {
     path: path.resolve(process.cwd(), './lib'),
-    publicPath: '/',
+    publicPath: './',
     filename: '[name].js',
     chunkFilename: '[id].js',
     libraryTarget: 'umd',
