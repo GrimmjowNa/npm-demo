@@ -1,0 +1,8 @@
+node_modules
+lib
+.idea
+.vscode
+.npmrc
+coverage
+waiter.config.js
+.envrc
