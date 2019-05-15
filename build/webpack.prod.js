@@ -1,7 +1,8 @@
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const path = require('path');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
-const TerserPlugin = require('terser-webpack-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
   mode: 'development',
@@ -26,19 +27,12 @@ module.exports = {
       amd: 'vue'
     }
   },
-  optimization: {
-    minimizer: [
-      new TerserPlugin({
-        terserOptions: {
-          output: {
-            comments: false
-          }
-        }
-      })
-    ]
-  },
   module: {
     rules: [
+      {
+        test: /\.css$/,
+        loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
+      },
       {
         test: /\.scss$/,
         use: ExtractTextPlugin.extract({
@@ -74,7 +68,16 @@ module.exports = {
     ]
   },
   plugins: [
-    new ExtractTextPlugin('./base.css'),
-    new VueLoaderPlugin()
+    new ExtractTextPlugin('base.css'),
+    new OptimizeCssAssetsPlugin(),
+    new VueLoaderPlugin(),
+    new UglifyJsPlugin({
+      uglifyOptions: {
+          output: {
+              comments: false,
+              beautify: false
+          }
+      }
+    })
   ]
 }

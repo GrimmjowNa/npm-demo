@@ -3,6 +3,4 @@ lib
 .idea
 .vscode
 .npmrc
-coverage
-waiter.config.js
 .envrc

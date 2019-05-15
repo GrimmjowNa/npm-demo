@@ -1,10 +1,11 @@
+build
+demo
+doc
 node_modules
+packages
+src
 .idea
 .vscode
 .npmrc
-coverage
-waiter.config.js
 .envrc
-demo
-doc
-
+.git
