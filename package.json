@@ -8,7 +8,7 @@
   },
   "scripts": {
     "clean": "rimraf lib",
-    "clean:demo": "rimraf demo/n-ui/lib",
+    "clean:demo": "rimraf demo/node_modules/npm-demo-nick-na/lib",
     "build": "npm run clean && webpack --config ./build/webpack.prod.js",
     "build:demo": "npm run clean:demo && webpack --config ./build/webpack.demo.js",
     "build:dev": "npm run clean && webpack --config ./build/webpack.dev.js",

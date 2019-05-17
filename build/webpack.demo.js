@@ -9,7 +9,7 @@ module.exports = {
     'n.common': './src/index.js'
   },
   output: {
-    path: path.resolve(process.cwd(), './demo/n-ui/lib'),
+    path: path.resolve(process.cwd(), './demo/node_modules/npm-demo-nick-na/lib'),
     publicPath: './',
     filename: '[name].js',
     chunkFilename: '[id].js',
